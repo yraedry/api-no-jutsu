@@ -11,32 +11,11 @@
 
 ## <a name="introduccion"></a> 🧐 Introduccion
 
-He creado una api para todas las paginas de anime en castellano llamado `api-no-jutsu`.Es un desarrollo en java basado en SpringBoot 3 y va de la mano del scrapper api-no-jutsu-scrapper, de un bot de telegram y una base de datos MySQL (algunos de estos repositorios estan ocultos de momento).
+He creado una api para todas las paginas de anime en castellano llamado `api-no-jutsu`. Es un desarrollo en Java basado en SpringBoot 3 que consume el servicio `api-no-jutsu-database` para obtener la información almacenada.
 Este proyecto nace por la necesidad de tener un api comun para todas las paginas de anime y poder mostrar las novedades en telegram.
 
 ## <a name="api"></a> 🖥️ Api
 
-### **Login**
-Permite a un usuario iniciar sesión en AnimeFLV utilizando sus credenciales.
-
-#### Endpoint:
-```http
-POST /api/animeflv/login
-```
-#### Request:
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `username` | `string` | **Required**. Usuario para iniciar sesión. |
-| `password` | `string` | **Required**. Contraseña del usuario. |
-
-#### Response
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `status` | `string` | Estado de la operación (success o error). |
-| `username` | `string` | Nombre de usuario. |
-| `message` | `string` | Mensaje de respuesta. |
 
 
 
@@ -126,26 +105,6 @@ GET /api/animeflv/obtener-url-visualizacion
 | `titulo` | `string` | Título del episodio. |
 | `urls` | `array` | Lista de URLs de visualización. |
 
-### **Logout**
-Cierra la sesión de un usuario en AnimeFLV.
-
-#### Endpoint:
-```http
-POST /api/animeflv/logout
-```
-#### Request:
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `username` | `string` |**required.** Usuario para cerrar sesión. |
-
-#### Response
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `status` | `string` | Estado de la operación (success o error). |
-| `username` | `string` | Nombre de usuario. |
-| `message` | `string` | Mensaje de respuesta. |
 
 ## <a name="autor"></a> ✨ Autor
 La api esta complemamente desarrollada por @yraedry

@@ -1,38 +1,9 @@
 openapi: 3.0.1
 info:
   title: API de AnimeFLV
-  description: API para interactuar con AnimeFLV, incluye funcionalidades como login, logout, obtención de novedades y detalles de animes.
+  description: API para obtener información de animes almacenada en el servicio api-no-jutsu-database.
   version: 1.0.0
 paths:
-  /api/animeflv/login:
-    post:
-      summary: Login en AnimeFLV
-      description: Realiza el login con credenciales de usuario.
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                username:
-                  type: string
-                  description: Nombre de usuario.
-                password:
-                  type: string
-                  description: Contraseña.
-              required:
-                - username
-                - password
-      responses:
-        '200':
-          description: Login exitoso.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LoginAnimeFlvDto'
-        '500':
-          description: Error en el servidor.
   /api/animeflv/novedades-episodios:
     get:
       summary: Obtener novedades de episodios
@@ -83,45 +54,8 @@ paths:
                 $ref: '#/components/schemas/InformacionAnimeDto'
         '500':
           description: Error en el servidor.
-  /api/animeflv/logout:
-    post:
-      summary: Logout de AnimeFLV
-      description: Finaliza la sesión del usuario en AnimeFLV.
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                username:
-                  type: string
-                  description: Nombre de usuario.
-              required:
-                - username
-      responses:
-        '200':
-          description: Logout exitoso.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LoginAnimeFlvDto'
-        '500':
-          description: Error en el servidor.
 components:
   schemas:
-    LoginAnimeFlvDto:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Estado del login/logout.
-        username:
-          type: string
-          description: Nombre de usuario.
-        message:
-          type: string
-          description: Mensaje adicional.
     NovedadesEpisodiosAnimeFlvDto:
       type: object
       properties:
